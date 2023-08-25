@@ -1,19 +1,23 @@
 @extends('backend.master')
 
 @section('content')
+@if (session()->has('success'))
+<div class="alert alert-danger ">{{ session()->get('success') }}
+</div>
+@endif
 <div class="container-fluid">
     <div class="col-md-12">
         <table class="table table-bordered">
-            <tr>
+            <tr class="bg-secondary text-white  text-center">
                 <td class="col-1 fw-bold">SL</td>
-                <td class="col-10 fw-bold">Name</td>
-                <td class="col-1 text-center fw-bold">Action</td>
+                <td class="col-10 fw-bold">Category Name</td>
+                <td class="col-1 fw-bold">Action</td>
             </tr>
             @foreach ($categories as $category)
                 <tr>
-                    <td>{{ $loop->index+1 }}</td>
+                    <td class="text-center">{{ $loop->index+1 }}</td>
                     <td>{{ $category->name }}</td>
-                    <td>
+                    <td class="text-center">
                         <a href="{{ url('/category/edit/'.$category->id) }}" class="btn btn-sm btn-info">Edit</a>
                         <a href="{{ url('/category/delete/'.$category->id) }}" class="btn btn-sm btn-danger">Delete</a>
                     </td>

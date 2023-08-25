@@ -55,9 +55,9 @@ $(document).ready(function() {
 </script>
 <!-- //script-for sticky-nav -->
 <div class="logo_products">
-    <div class="container">
+    <div class="container-fluid">
         <div class="w3ls_logo_products_left">
-            <h1><a href="index.html"><span>Grocery</span> Store</a></h1>
+            <h1><a href="{{ url("/") }}"><span>Grocery</span> Store</a></h1>
         </div>
         <div class="w3ls_logo_products_left1">
             <ul class="special_items">

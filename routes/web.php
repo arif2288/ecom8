@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\Productcontroller;
 use App\Http\Controllers\Admin\SubcategoryController;
 
 Route::get('/',[FrontendController::class, 'index']);
@@ -41,4 +42,13 @@ Route::middleware([
     route::get('/subcategory/edit/{id}', [SubcategoryController::class, 'subcategoryEdit']);
     route::post('/subcategory/update/{id}', [SubcategoryController::class, 'subcategoryUpdate']);
     route::get('/subcategory/delete/{id}', [SubcategoryController::class, 'subcategoryDelete']);
+
+    //Product
+    route::get('/product/add', [Productcontroller::class, 'showProductForm']);
+    route::get('/product/manage', [Productcontroller::class, 'showProductList']);
+    route::post('/product/store', [Productcontroller::class, 'productStore']);
+    route::get('/product/edit/{id}', [Productcontroller::class, 'productEdit']);
+    route::post('/product/update/{id}', [Productcontroller::class, 'productUpdate']);
+    route::get('/product/delete/{id}', [Productcontroller::class, 'productDelete']);
 });
+ 
